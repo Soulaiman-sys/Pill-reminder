@@ -9,7 +9,7 @@ class PillRemainCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       //height: 200,
-      width: 200,
+      width: 180,
       decoration: BoxDecoration(
           color: Colors.transparent,
           border: Border.all(color: Colors.grey.shade400),
