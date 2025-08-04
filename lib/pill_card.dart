@@ -35,9 +35,9 @@ class PillCard extends StatelessWidget {
           Spacer(),
           Row(
             children: [
-              CustomButton(icon: Icons.done,color: Colors.blue,),
+              CustomButton(icon: Icons.done,color: Colors.lightBlueAccent.withValues(alpha: .1), iconColor: Colors.blue,),
               SizedBox(width: 10,),
-              CustomButton(icon: Icons.add,color: Colors.red,),
+              CustomButton(icon: Icons.close,color: Colors.red.withValues(alpha: .1), iconColor: Colors.red.shade400,),
             ],
           )
         ],
@@ -88,19 +88,20 @@ class PillDetailComponent extends StatelessWidget {
 
 class CustomButton extends StatelessWidget {
   final IconData icon;
-  final MaterialColor color;
+  final Color color;
+  final Color iconColor;
 
-  const CustomButton({super.key, required this.icon, required this.color});
+  const CustomButton({super.key, required this.icon, required this.color, required this.iconColor});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 50,
       height: 50,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: color.shade100),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: color),
       child: Icon(
         icon,
-        color: color,
+        color: iconColor,
       ),
     );
   }

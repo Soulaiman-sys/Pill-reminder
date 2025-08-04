@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 70,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue.shade100,
+                  backgroundColor: Colors.lightBlueAccent.withValues(alpha: .1),
                   elevation: 0
                 ),
                   onPressed: (){
@@ -138,9 +138,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.add,color: Colors.blueAccent,size: 18,),
+                  Icon(Icons.add,color: Colors.lightBlue,size: 18,),
                   SizedBox(width: 5,),
-                  Text("New reminder",style: TextStyle(color: Colors.blueAccent,fontSize: 17),)
+                  Text("New reminder",style: TextStyle(color: Colors.lightBlue,fontSize: 17),)
                 ],
               )),
             ),
