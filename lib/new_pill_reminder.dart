@@ -14,6 +14,7 @@ class _NewPillReminderState extends State<NewPillReminder> {
   final dayNames = ['Mo','Tu','We','Th','Fr','Sa','Su'];
   List<String> selectedDays = [];
   List<String> times = [];
+  int doses = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -111,18 +112,34 @@ class _NewPillReminderState extends State<NewPillReminder> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(shape: BoxShape.circle,color: Colors.black12.withValues(alpha: .05)),
-                          child: Center(child: Text('-',style: TextStyle(color: Colors.black38,fontSize: 30,fontWeight: FontWeight.bold),)) //Icon(Icons.add,color: Colors.black38,),
+                        GestureDetector(
+                          onTap:(){
+                            if(doses>0){
+                              setState(() {
+                                doses--;
+                              });
+                            }
+                          },
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(shape: BoxShape.circle,color: Colors.black12.withValues(alpha: .05)),
+                            child: Center(child: Text('-',style: TextStyle(color: Colors.black38,fontSize: 30,fontWeight: FontWeight.bold),)) //Icon(Icons.add,color: Colors.black38,),
+                          ),
                         ),
-                        Text("30",style: TextStyle(color: Colors.black38,fontWeight: FontWeight.bold,fontSize: 20),),
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(shape: BoxShape.circle,color: Colors.black12.withValues(alpha: .05)),
-                          child: Icon(Icons.add,color: Colors.black38,),
+                        Text('$doses',style: TextStyle(color: Colors.black38,fontWeight: FontWeight.bold,fontSize: 20),),
+                        GestureDetector(
+                          onTap: (){
+                            setState(() {
+                              doses++;
+                            });
+                          },
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(shape: BoxShape.circle,color: Colors.black12.withValues(alpha: .05)),
+                            child: Icon(Icons.add,color: Colors.black38,),
+                          ),
                         ),
                       ],
                     ),
