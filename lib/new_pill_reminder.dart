@@ -13,7 +13,7 @@ class _NewPillReminderState extends State<NewPillReminder> {
   TextEditingController txtDescription = TextEditingController();
   final dayNames = ['Mo','Tu','We','Th','Fr','Sa','Su'];
   List<String> selectedDays = [];
-  List<String> times = [];
+  List<String> times = ['12:00'];
   int doses = 0;
 
   @override
@@ -95,9 +95,24 @@ class _NewPillReminderState extends State<NewPillReminder> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SingleChildScrollView( scrollDirection: Axis.horizontal,child: ListView.separated(shrinkWrap: true,scrollDirection: Axis.horizontal,itemBuilder: (ctx,index)=> TimeComponent(), separatorBuilder: (ctx,index)=> SizedBox(width: 10,), itemCount: 1)),
+                        SingleChildScrollView( scrollDirection: Axis.horizontal,child: SizedBox(
+                          width: 290,
+                          child: ListView.separated(scrollDirection: Axis.horizontal,itemBuilder: (ctx,index)=> TimeComponent(
+                            onClick: () async{
+                              final TimeOfDay? pickedTime = await showTimePicker(context: context, initialTime: TimeOfDay(hour: 00, minute: 00));
+                              if(pickedTime != null){
+                                setState(() {
+                                  times[index] = pickedTime.format(context);
+                                });
+                              }
+                            }, title: times[index],), separatorBuilder: (ctx,index)=> SizedBox(width: 10,), itemCount: times.length),
+                        )),
                         SizedBox(width: 10,),
-                        IconButton(onPressed: (){}, icon: Icon(Icons.add,color: Colors.lightBlueAccent))
+                        IconButton(onPressed: (){
+                          setState(() {
+                            times.add('00:00');
+                          });
+                        }, icon: Icon(Icons.add,color: Colors.lightBlueAccent))
                       ],
                     ),
                   ),
