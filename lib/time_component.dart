@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class TimeComponent extends StatefulWidget {
   final Function() onClick;
   final String title;
-  const TimeComponent({super.key, required this.onClick, required this.title});
+  final int index;
+  const TimeComponent({super.key, required this.onClick, required this.title, required this.index});
 
   @override
   State<TimeComponent> createState() => _TimeComponentState();
@@ -28,7 +29,7 @@ class _TimeComponentState extends State<TimeComponent> {
                 Spacer(),
                 VerticalDivider(width: 10,),
                 Spacer(),
-                Text("1",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black38,fontSize: 16),),
+                Text(widget.index.toString(),style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black38,fontSize: 16),),
               ],
             ),
           ),
