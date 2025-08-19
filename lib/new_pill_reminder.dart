@@ -21,7 +21,7 @@ class _NewPillReminderState extends State<NewPillReminder> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text('New Pill Reminder',style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text('New Pill Reminder',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
         centerTitle: true,
       ),
       body: Container(
@@ -35,10 +35,9 @@ class _NewPillReminderState extends State<NewPillReminder> {
                   SizedBox(height: 10,),
                   TextFormField(
                     decoration: InputDecoration(
-                      border: const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                      focusedBorder:  const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                    ),
-                  ),
+                      border: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 212, 209, 209))),
+                      focusedBorder:  const OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 212, 209, 209)),),
+                  )),
                   SizedBox(height: 20,),
                   Align(alignment: Alignment.centerLeft,child: Text('Description',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.black54),textAlign: TextAlign.start,)),
                   SizedBox(height: 10,),
@@ -89,23 +88,28 @@ class _NewPillReminderState extends State<NewPillReminder> {
                   SizedBox(height: 20,),
                   Align(alignment: Alignment.centerLeft,child: Text('Times',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.black54),textAlign: TextAlign.start,)),
                   SizedBox(height: 20,),
-                  SizedBox(
-                    height: 60,
+                  Container(
+                    constraints: BoxConstraints(maxHeight: 70),
                     width: double.infinity,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SingleChildScrollView( scrollDirection: Axis.horizontal,child: SizedBox(
-                          width: 290,
+                        SingleChildScrollView( scrollDirection: Axis.horizontal,child: Container(
+                          constraints: BoxConstraints(maxHeight: 50),
+                          width: MediaQuery.of(context).size.width *.7,
+
                           child: ListView.separated(scrollDirection: Axis.horizontal,itemBuilder: (ctx,index)=> TimeComponent(
                             onClick: () async{
-                              final TimeOfDay? pickedTime = await showTimePicker(context: context, initialTime: TimeOfDay(hour: 00, minute: 00));
+                              final TimeOfDay? pickedTime = await showTimePicker(builder: (ctx,child){  
+                                return MediaQuery(data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true), child: child ?? Container());
+                              },context: context, initialTime: TimeOfDay(hour: 00, minute: 00));
                               if(pickedTime != null){
                                 setState(() {
-                                  times[index] = pickedTime.format(context);
+                                  times[index] = "${pickedTime.hour}:${pickedTime.minute}";
                                 });
                               }
-                            }, title: times[index],), separatorBuilder: (ctx,index)=> SizedBox(width: 10,), itemCount: times.length),
+                            }, title: times[index],index: index+1,), separatorBuilder: (ctx,index)=> SizedBox(width: 10,), itemCount: times.length),
                         )),
                         SizedBox(width: 10,),
                         IconButton(onPressed: (){
@@ -170,7 +174,7 @@ class _NewPillReminderState extends State<NewPillReminder> {
                             elevation: 0
                         ),
                         onPressed: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (_)=> NewPillReminder()));
+                        ///Todo: navigate to another section 
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
