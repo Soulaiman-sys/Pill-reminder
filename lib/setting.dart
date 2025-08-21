@@ -10,10 +10,13 @@ class Setting extends StatefulWidget {
 class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        
-      ],
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: double.infinity,
+      child: Column(
+        children: [
+        ],
+      ),
     );
   }
 }
