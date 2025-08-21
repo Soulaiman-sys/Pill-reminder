@@ -35,6 +35,7 @@ class _NewPillReminderState extends State<NewPillReminder> {
                   SizedBox(height: 10,),
                   TextFormField(
                     decoration: InputDecoration(
+                      enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 212, 209, 209))), 
                       border: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 212, 209, 209))),
                       focusedBorder:  const OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 212, 209, 209)),),
                   )),
@@ -44,8 +45,9 @@ class _NewPillReminderState extends State<NewPillReminder> {
                   TextFormField(
                     maxLines: 4,
                     decoration: InputDecoration(
-                      border: const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                      focusedBorder:  const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                      border: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 212, 209, 209))),
+                      focusedBorder:  const OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 212, 209, 209))),
+                      enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 212, 209, 209))),
                     ),
                   ),
                   SizedBox(height: 20,),
@@ -59,7 +61,7 @@ class _NewPillReminderState extends State<NewPillReminder> {
                           bool isSelected = selectedDays.any((item)=> item ==e);
                         return GestureDetector(
                           onTap: (){
-                            setState(() {
+                            setState(() { 
                               if(!isSelected) {
                                 selectedDays.add(e);
                               }else{
@@ -89,6 +91,7 @@ class _NewPillReminderState extends State<NewPillReminder> {
                   Align(alignment: Alignment.centerLeft,child: Text('Times',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.black54),textAlign: TextAlign.start,)),
                   SizedBox(height: 20,),
                   Container(
+                    color: Colors.orange,
                     constraints: BoxConstraints(maxHeight: 70),
                     width: double.infinity,
                     child: Row(
@@ -98,7 +101,6 @@ class _NewPillReminderState extends State<NewPillReminder> {
                         SingleChildScrollView( scrollDirection: Axis.horizontal,child: Container(
                           constraints: BoxConstraints(maxHeight: 50),
                           width: MediaQuery.of(context).size.width *.7,
-
                           child: ListView.separated(scrollDirection: Axis.horizontal,itemBuilder: (ctx,index)=> TimeComponent(
                             onClick: () async{
                               final TimeOfDay? pickedTime = await showTimePicker(builder: (ctx,child){  
