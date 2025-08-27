@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Color.fromARGB(255, 232, 234, 238),
-        appBarTheme: AppBarTheme(backgroundColor: Color.fromARGB(255, 232, 234, 238)),
+        appBarTheme:
+            AppBarTheme(backgroundColor: Color.fromARGB(255, 232, 234, 238)),
       ),
       home: const MyHomePage(),
     );
@@ -52,9 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       Container(
                         width: 50,
                         height: 50,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle),
-                        child: Icon(Icons.perm_identity,color: Colors.grey,size: 30,),
+                        decoration: BoxDecoration(shape: BoxShape.circle),
+                        child: Icon(
+                          Icons.perm_identity,
+                          color: Colors.grey,
+                          size: 30,
+                        ),
                       ),
                       Container(
                         width: 50,
@@ -63,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             shape: BoxShape.circle,
                             border: Border.all(color: Colors.grey)),
                         child: Icon(
-                          Icons.notifications_none_outlined,
+                          Icons.notifications_none_outlined, 
                           color: Colors.black,
                         ),
                       )
@@ -76,23 +80,29 @@ class _MyHomePageState extends State<MyHomePage> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Today's Reminder ",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                       textAlign: TextAlign.start,
                     ),
                   ),
                   ListView.separated(
-                    shrinkWrap: true,
-                      itemBuilder: (ctx,index)=> PillCard(),
-                      separatorBuilder: (ctx,index)=> SizedBox(height: 20,),
+                      shrinkWrap: true,
+                      itemBuilder: (ctx, index) => PillCard(),
+                      separatorBuilder: (ctx, index) => SizedBox(
+                            height: 20,
+                          ),
                       itemCount: 2),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     children: [
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "Inventory",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 25),
                           textAlign: TextAlign.start,
                         ),
                       ),
@@ -100,18 +110,30 @@ class _MyHomePageState extends State<MyHomePage> {
                       Container(
                         width: 100,
                         height: 40,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border: Border.all(color: Colors.grey)),
-                        child: Center(child: Text("SEE ALL",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black38),)),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.grey)),
+                        child: Center(
+                            child: Text(
+                          "SEE ALL",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black38),
+                        )),
                       ),
                     ],
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   SizedBox(
                     height: 110,
                     child: ListView.separated(
-                      shrinkWrap: true,
-                        itemBuilder: (ctx,index)=> PillRemainCard(),
-                        separatorBuilder: (ctx,index)=> SizedBox(width: 20,),
+                        shrinkWrap: true,
+                        itemBuilder: (ctx, index) => PillRemainCard(),
+                        separatorBuilder: (ctx, index) => SizedBox(
+                              width: 20,
+                            ),
                         scrollDirection: Axis.horizontal,
                         itemCount: 5),
                   ),
@@ -128,21 +150,31 @@ class _MyHomePageState extends State<MyHomePage> {
               width: MediaQuery.of(context).size.width * .8,
               height: 70,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.lightBlueAccent.withValues(alpha: .1),
-                  elevation: 0
-                ),
-                  onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=> NewPillReminder()));
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          Colors.lightBlueAccent.withValues(alpha: .1),
+                      elevation: 0),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => NewPillReminder()));
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.add,color: Colors.lightBlue,size: 18,),
-                  SizedBox(width: 5,),
-                  Text("New reminder",style: TextStyle(color: Colors.lightBlue,fontSize: 17),)
-                ],
-              )),
+                    children: [
+                      Icon(
+                        Icons.add,
+                        color: Colors.lightBlue,
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "New reminder",
+                        style: TextStyle(color: Colors.lightBlue, fontSize: 17),
+                      )
+                    ],
+                  )),
             ),
           )
         ],
