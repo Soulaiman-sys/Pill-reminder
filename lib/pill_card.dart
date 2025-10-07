@@ -34,9 +34,19 @@ class PillCard extends StatelessWidget {
           Spacer(),
           Row(
             children: [
-              CustomButton(icon: Icons.done,color: Colors.lightBlueAccent.withValues(alpha: .1), iconColor: Colors.blue,),
-              SizedBox(width: 10,),
-              CustomButton(icon: Icons.close,color: Colors.red.withValues(alpha: .1), iconColor: Colors.red.shade400,),
+              CustomButton(
+                icon: Icons.done,
+                color: Colors.lightBlueAccent.withValues(alpha: .1),
+                iconColor: Colors.blue,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              CustomButton(
+                icon: Icons.close,
+                color: Colors.red.withValues(alpha: .1),
+                iconColor: Colors.red.shade400,
+              ),
             ],
           )
         ],
@@ -63,7 +73,10 @@ class PillDetailComponent extends StatelessWidget {
         ),
         Text(
           '16:30',
-          style: TextStyle(fontSize: 15,color: Colors.grey,),
+          style: TextStyle(
+            fontSize: 15,
+            color: Colors.grey,
+          ),
         ),
         SizedBox(
           width: 10,
@@ -78,7 +91,10 @@ class PillDetailComponent extends StatelessWidget {
         ),
         Text(
           '1 pills',
-          style: TextStyle(fontSize: 15,color: Colors.grey,),
+          style: TextStyle(
+            fontSize: 15,
+            color: Colors.grey,
+          ),
         ),
       ],
     );
@@ -90,14 +106,19 @@ class CustomButton extends StatelessWidget {
   final Color color;
   final Color iconColor;
 
-  const CustomButton({super.key, required this.icon, required this.color, required this.iconColor});
+  const CustomButton(
+      {super.key,
+      required this.icon,
+      required this.color,
+      required this.iconColor});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 50,
       height: 50,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: color),
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.circular(20), color: color),
       child: Icon(
         icon,
         color: iconColor,

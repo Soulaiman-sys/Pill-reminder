@@ -4,7 +4,12 @@ class TimeComponent extends StatefulWidget {
   final Function() onClick;
   final String title;
   final int index;
-  const TimeComponent({super.key, required this.onClick, required this.title, required this.index});
+
+  const TimeComponent(
+      {super.key,
+      required this.onClick,
+      required this.title,
+      required this.index});
 
   @override
   State<TimeComponent> createState() => _TimeComponentState();
@@ -20,16 +25,32 @@ class _TimeComponentState extends State<TimeComponent> {
         children: [
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(border: Border.all(color: Colors.grey.shade400),borderRadius: BorderRadius.circular(10)),
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey.shade400),
+                borderRadius: BorderRadius.circular(10)),
             width: 130,
             height: 60,
             child: Row(
               children: [
-                Text(widget.title,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black38,fontSize: 16),),
+                Text(
+                  widget.title,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black38,
+                      fontSize: 16),
+                ),
                 Spacer(),
-                VerticalDivider(width: 10,),
+                VerticalDivider(
+                  width: 10,
+                ),
                 Spacer(),
-                Text(widget.index.toString(),style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black38,fontSize: 16),),
+                Text(
+                  widget.index.toString(),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black38,
+                      fontSize: 16),
+                ),
               ],
             ),
           ),
@@ -39,8 +60,16 @@ class _TimeComponentState extends State<TimeComponent> {
             child: Container(
               width: 20,
               height: 20,
-              decoration: BoxDecoration(shape: BoxShape.circle,color: Colors.red.shade100,),
-              child: Center(child: Icon(Icons.close_outlined,size: 12,color: Colors.red,)),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.red.shade100,
+              ),
+              child: Center(
+                  child: Icon(
+                Icons.close_outlined,
+                size: 12,
+                color: Colors.red,
+              )),
             ),
           ),
         ],

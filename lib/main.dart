@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             shape: BoxShape.circle,
                             border: Border.all(color: Colors.grey)),
                         child: Icon(
-                          Icons.notifications_none_outlined, 
+                          Icons.notifications_none_outlined,
                           color: Colors.black,
                         ),
                       )

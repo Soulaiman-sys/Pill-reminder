@@ -14,8 +14,7 @@ class _SettingState extends State<Setting> {
       width: MediaQuery.of(context).size.width,
       height: double.infinity,
       child: Column(
-        children: [
-        ],
+        children: [],
       ),
     );
   }
